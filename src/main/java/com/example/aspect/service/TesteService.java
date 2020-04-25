@@ -6,9 +6,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class TesteService {
 
-    public Nome meuNome() {
+    public Nome meuNome(String nomeStr) {
         Nome nome = new Nome();
-        nome.setNome("Ramon-Araujo-Queiroga");
+        nome.setNome(nomeStr);
         return nome;
     }
 

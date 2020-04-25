@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.print.attribute.standard.Media;
 import java.util.Arrays;
 
 @RestController
@@ -34,10 +33,12 @@ public class TesteResource {
     @Autowired
     private PlayerService playerService;
 
+
     @RequestMapping(value = "/api/aspect", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     @ResponseBody
     public ResponseEntity<?> testeRource() {
-        return ResponseEntity.ok(this.testeService.meuNome());
+        String nome = "Ramon-Araujo-Queiroga";
+        return ResponseEntity.ok(this.testeService.meuNome(nome));
     }
 
     @RequestMapping(value = "/api/reserva", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
@@ -94,7 +95,7 @@ public class TesteResource {
         Player player = new Player();
         player.setHability(habilidade);
         player.setName(name);
-        player.setSobrenome(sobrenome);
+        player.setSurname(sobrenome);
         return player;
     }
 

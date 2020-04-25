@@ -14,7 +14,13 @@ public class AspectTeste {
     public Object testeAspect(ProceedingJoinPoint pjp) throws Throwable {
 
         try {
+            //get parameter data
+            String nomeArg = (String)pjp.getArgs()[0];
+            System.out.print("O nome que veio no parametro é: " + nomeArg);
+
             Object proceed = pjp.proceed();
+
+            //transform data returned from method
             Nome novo = (Nome) proceed;
             String nome = novo.getNome();
             String nomeTratado = nome.replace("-", " ");

@@ -1,7 +1,6 @@
 package com.example.aspect.Entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -14,10 +13,10 @@ public class Player implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-    private String name;
-    private String Sobrenome;
-    private Integer hability;
+    private Long       id;
+    private String     name;
+    private String     surname;
+    private Integer    hability;
     @ManyToOne(cascade = CascadeType.ALL)
     private SoccerTeam soccerTeam;
 
@@ -37,12 +36,12 @@ public class Player implements Serializable {
         this.name = name;
     }
 
-    public String getSobrenome() {
-        return Sobrenome;
+    public String getSurname() {
+        return surname;
     }
 
-    public void setSobrenome(String sobrenome) {
-        Sobrenome = sobrenome;
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 
     public Integer getHability() {
@@ -71,7 +70,7 @@ public class Player implements Serializable {
 
         if (id != null ? !id.equals(player.id) : player.id != null) return false;
         if (name != null ? !name.equals(player.name) : player.name != null) return false;
-        if (Sobrenome != null ? !Sobrenome.equals(player.Sobrenome) : player.Sobrenome != null) return false;
+        if (surname != null ? !surname.equals(player.surname) : player.surname != null) return false;
         if (hability != null ? !hability.equals(player.hability) : player.hability != null) return false;
         return soccerTeam != null ? soccerTeam.equals(player.soccerTeam) : player.soccerTeam == null;
 
@@ -81,7 +80,7 @@ public class Player implements Serializable {
     public int hashCode() {
         int result = id != null ? id.hashCode() : 0;
         result = 31 * result + (name != null ? name.hashCode() : 0);
-        result = 31 * result + (Sobrenome != null ? Sobrenome.hashCode() : 0);
+        result = 31 * result + (surname != null ? surname.hashCode() : 0);
         result = 31 * result + (hability != null ? hability.hashCode() : 0);
         result = 31 * result + (soccerTeam != null ? soccerTeam.hashCode() : 0);
         return result;
